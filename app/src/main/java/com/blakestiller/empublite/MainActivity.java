@@ -4,14 +4,34 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-
+import android.widget.TextView;
+import android.widget.Button;
+import android.widget.Toast;
+import android.view.View;
+import android.view.View.OnClickListener;
 
 public class MainActivity extends ActionBarActivity {
+
+    private Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        button = (Button) findViewById(R.id.button1);
+
+        button.setOnClickListener(new OnClickListener() {
+
+            @Override
+            public void onClick(View arg0) {
+
+                Toast.makeText(getApplicationContext(),
+                        "Button is clicked", Toast.LENGTH_LONG).show();
+
+
+            }
+        });
     }
 
     @Override
