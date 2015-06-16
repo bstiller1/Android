@@ -15,6 +15,8 @@ public class MainActivity extends ActionBarActivity {
 
     private Button button;
     private EditText edittext;
+    private String TextVisible = "no";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,16 +25,25 @@ public class MainActivity extends ActionBarActivity {
 
         button = (Button) findViewById(R.id.button1);
         edittext = (EditText) findViewById(R.id.editText);
+
         button.setOnClickListener(new OnClickListener() {
 
             @Override
             public void onClick(View arg0) {
-                edittext.setVisibility(View.VISIBLE);
-                Toast.makeText(getApplicationContext(),
-                        "EditText is VISIBLE Now", Toast.LENGTH_LONG).show();
-            }
-        });
-    }
+                if(TextVisible == "no") {
+                    TextVisible = "yes";
+                    edittext.setVisibility(View.VISIBLE);
+                    Toast.makeText(getApplicationContext(),
+                            "EditText is VISIBLE Now", Toast.LENGTH_LONG).show();
+                } else {
+                    TextVisible = "no";
+                    edittext.setVisibility(View.INVISIBLE);
+                    Toast.makeText(getApplicationContext(),
+                            "EditText is INVISIBLE Now", Toast.LENGTH_SHORT).show();
+                } // End IF
+            } // End onClick
+        }); // End onClickListener
+    } // End onCreate
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
