@@ -1,15 +1,16 @@
 package com.blakestiller.empublite;
 
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Button;
-import android.widget.Toast;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import android.app.ListActivity;
 
 public class MainActivity extends ActionBarActivity {
 
@@ -18,10 +19,12 @@ public class MainActivity extends ActionBarActivity {
     private String TextVisible = "no"; // Create TextVisible Variable of type String
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         // Access the Button by it's ID button1
         button = (Button) findViewById(R.id.button1);
@@ -44,7 +47,7 @@ public class MainActivity extends ActionBarActivity {
                     // Create and show TOAST Message
                     // to tell the user that it is VISIBLE now
                     Toast.makeText(getApplicationContext(),
-                            "EditText is VISIBLE Now", Toast.LENGTH_LONG).show();
+                            "EditText is VISIBLE Now", Toast.LENGTH_SHORT).show();
                 } else {
                     // Set TextVisible Variable to "no"
                     TextVisible = "no";
