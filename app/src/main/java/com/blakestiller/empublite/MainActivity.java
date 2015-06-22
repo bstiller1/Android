@@ -1,5 +1,7 @@
 package com.blakestiller.empublite;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
@@ -79,10 +81,19 @@ public class MainActivity extends AppCompatActivity {
             case android.R.id.home:
                 return (true);
             case R.id.about:
+                Toast.makeText(this, R.string.about_toast, Toast.LENGTH_LONG)
+                        .show();
                 return (true);
             case R.id.help:
+                showMe();
                 return (true);
         }
         return(super.onOptionsItemSelected(item));
+    }
+    public void showMe() {
+        //EditText url=(EditText)findViewById(R.id.url);
+        String url = "http://blakestiller.com/formdata.php?help=Here%20are%20the%20help%20documents";
+        startActivity(new Intent(Intent.ACTION_VIEW,
+                Uri.parse(url)));
     }
 }
