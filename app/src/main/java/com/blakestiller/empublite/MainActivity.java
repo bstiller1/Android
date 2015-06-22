@@ -2,6 +2,7 @@ package com.blakestiller.empublite;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -9,22 +10,22 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
+import android.view.Menu;
+import android.view.MenuItem;
 import android.app.ListActivity;
 
-public class MainActivity extends ActionBarActivity {
+// Changed "extends ActionBarActivity" to AppCompatActivity
+public class MainActivity extends AppCompatActivity {
 
     private Button button; // Create button Variable of type Button
     private EditText edittext; // Create edittext Variable of type EditText
     private String TextVisible = "no"; // Create TextVisible Variable of type String
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
 
         // Access the Button by it's ID button1
         button = (Button) findViewById(R.id.button1);
@@ -65,22 +66,23 @@ public class MainActivity extends ActionBarActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
+        // gets values from "options.xml"
+        getMenuInflater().inflate(R.menu.options, menu);
+        return(super.onCreateOptionsMenu(menu));
+        //return true;
     }
 
     @Override
+    // Menu Items in ActionBar for access to the ID's
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                return (true);
+            case R.id.about:
+                return (true);
+            case R.id.help:
+                return (true);
         }
-
-        return super.onOptionsItemSelected(item);
+        return(super.onOptionsItemSelected(item));
     }
 }
